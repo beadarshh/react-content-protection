@@ -6,7 +6,7 @@ A highly configurable React package to protect your web application's content by
 
 ```bash
 # If publishing to npm / GitHub
-npm install react-content-protection
+npm install @beadarshh/react-content-protection
 ```
 
 ## Usage

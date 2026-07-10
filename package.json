@@ -1,11 +1,23 @@
 {
   "name": "@beadarshh/react-content-protection",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
   "description": "A reusable React package to protect your application's content by blocking copy, print, and developer tools.",
+  "keywords": [
+    "react",
+    "content-protection",
+    "security",
+    "disable-copy",
+    "disable-right-click",
+    "disable-devtools",
+    "anti-piracy",
+    "protect-content",
+    "react-component",
+    "disable-print"
+  ],
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
