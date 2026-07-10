@@ -3,13 +3,13 @@ import React, { createContext, useContext, ReactNode } from 'react';
 export interface ContentProtectionConfig {
   /**
    * If true, allows copying text and images. Overrides text selection block.
-   * Default: false
+   * Default: true
    */
   allowCopy?: boolean;
 
   /**
    * If true, allows printing the page without a protection overlay.
-   * Default: false
+   * Default: true
    */
   allowPrint?: boolean;
 
@@ -21,13 +21,13 @@ export interface ContentProtectionConfig {
 
   /**
    * If true, does not block common shortcuts (Save, Print, View Source, etc.).
-   * Default: false
+   * Default: true
    */
   allowShortcuts?: boolean;
 
   /**
    * If true, disables the 'Automated Browser Detected' check.
-   * Default: false
+   * Default: true
    */
   allowAutomatedBrowsers?: boolean;
 
@@ -40,11 +40,11 @@ export interface ContentProtectionConfig {
 }
 
 const defaultConfig: ContentProtectionConfig = {
-  allowCopy: false,
-  allowPrint: false,
+  allowCopy: true,
+  allowPrint: true,
   allowDevTools: false,
-  allowShortcuts: false,
-  allowAutomatedBrowsers: false,
+  allowShortcuts: true,
+  allowAutomatedBrowsers: true,
   enableInDevelopment: false,
 };
 
