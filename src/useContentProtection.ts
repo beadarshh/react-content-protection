@@ -81,7 +81,9 @@ export function useContentProtection() {
     const widthThreshold = window.outerWidth - window.innerWidth > 160;
     const heightThreshold = window.outerHeight - window.innerHeight > 160;
 
-    if (widthThreshold || heightThreshold) {
+    // If both thresholds are exceeded, it's highly likely to be a browser zoom rather than DevTools
+    // DevTools usually only docks to one side (reducing only width OR height)
+    if ((widthThreshold || heightThreshold) && !(widthThreshold && heightThreshold)) {
       document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;font-weight:800;color:red;background:#000;text-align:center;padding:20px;">ACCESS DENIED: DEVTOOLS DETECTED</div>';
     }
 
