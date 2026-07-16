@@ -78,6 +78,11 @@ export function useContentProtection() {
     const isMobile = typeof navigator !== 'undefined' && (/Android/i.test(navigator.userAgent) || isIos);
     if (isMobile) return;
 
+    // Ignore if user is pinch-zooming (common on Mac/iOS trackpads and screens)
+    if (typeof window !== 'undefined' && window.visualViewport && window.visualViewport.scale !== 1) {
+      return;
+    }
+
     const widthThreshold = window.outerWidth - window.innerWidth > 160;
     const heightThreshold = window.outerHeight - window.innerHeight > 160;
 
