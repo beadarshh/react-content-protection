@@ -83,14 +83,11 @@ export function useContentProtection() {
       return;
     }
 
-    const widthThreshold = window.outerWidth - window.innerWidth > 160;
-    const heightThreshold = window.outerHeight - window.innerHeight > 160;
+    // Width/Height threshold checks for DevTools are notoriously unreliable because:
+    // 1. Browsers with vertical sidebars (Arc, Safari) trigger false positives.
+    // 2. Pinch-to-zoom on Mac/iOS changes innerWidth but not outerWidth.
+    // We will rely on the debugger timing check below which is more robust.
 
-    // If both thresholds are exceeded, it's highly likely to be a browser zoom rather than DevTools
-    // DevTools usually only docks to one side (reducing only width OR height)
-    if ((widthThreshold || heightThreshold) && !(widthThreshold && heightThreshold)) {
-      document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;font-weight:800;color:red;background:#000;text-align:center;padding:20px;">ACCESS DENIED: DEVTOOLS DETECTED</div>';
-    }
 
     const start = performance.now();
     // eslint-disable-next-line no-debugger
